@@ -21,27 +21,27 @@ function Home() {
                 </div>  
             </section>
             <section className="min-h-[120vh]">
-                <div className="flex justify-evenly items-center m-14">
-                    <div className="flex flex-col items-center max-w-72 text-center font-poppins">
+                <div className="sm:flex sm:justify-evenly sm:items-center sm:m-16 xl:flex xl:justify-evenly xl:items-center xl:m-14">
+                    <div className="sm:flex sm:flex-col sm:items-center sm:max-w-72 sm:text-center xl:flex xl:flex-col xl:items-center xl:max-w-72 xl:text-center font-poppins min">
                         <FontAwesomeIcon className="text-primari text-6xl py-4" icon={faCircleCheck} />
                         <h3 className="text-primari font-bold text-xl tracking-wide">Obat Lengkap</h3>
                         <p>Menyediakan beragam jenis obat untuk memenuhi kebutuhan kesehatan konsumen</p>
                     </div>
-                    <div className="flex flex-col items-center max-w-72 text-center font-poppins">
+                    <div className="sm:flex sm:flex-col sm:items-center sm:max-w-72 sm:text-center xl:flex xl:flex-col xl:items-center xl:max-w-72 xl:text-center font-poppins">
                         <FontAwesomeIcon className="text-primari text-6xl py-4" icon={faFlask} />
                         <h3 className="text-primari font-bold text-xl tracking-wide">Teruji Lab</h3>
                         <p>Kualitas dan keamanan obat-obatan yang dijual dipastikan aman karena teruji lab</p>
                     </div>
                 </div>
 
-                <div className="flex flex-row justify-evenly max-w-full py-24">
-                    <div className="w-2/4 font-poppins self-baseline">
+                <div className="sm:flex sm:flex-col-reverse sm:py-24 sm:gap-4 xl:flex xl:flex-row xl:justify-evenly xl:max-w-full xl:py-24">
+                    <div className="sm:w-3/4 sm:text-center sm:self-center xl:text-left  xl:w-[40%] font-poppins xl:self-baseline">
                         <h2 className="text-primari font-bold text-3xl tracking-wide">Sakit dan Sedang Butuh Obat?</h2>
-                        <p className="w-7/12 mb-36">Tenang, kami siap membantu Anda memilih obat yang tepat! Kami tidak hanya menawarkan obat-obatan yang dibutuhkan untuk mengatasi berbagai masalah kesehatan. Cek profil kami dibawah ini!</p>
+                        <p className="sm:mb-10 xl:w-3/4 xl:mb-36">Tenang, kami siap membantu Anda memilih obat yang tepat! Kami tidak hanya menawarkan obat-obatan yang dibutuhkan untuk mengatasi berbagai masalah kesehatan. Cek profil kami dibawah ini!</p>
                         <ButtonProfil/>
                     </div>
-                    <div className="">
-                        <img className="aspect-square w-80" src={ilustrasi_obat} alt="ilustrasi_obat" />
+                    <div className="sm:flex sm:aspect[9:16] sm:justify-center sm:items-center">
+                        <img className="sm:w-[550px] xl:w-[575px]" src={ilustrasi_obat} alt="ilustrasi_obat" />
                     </div>
                 </div>
             </section>
