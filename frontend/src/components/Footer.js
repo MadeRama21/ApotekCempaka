@@ -6,11 +6,11 @@ import apotekcempakaFooter from '../assets/apotekcempaka_footer.svg'
 function Footer(){
     return(
         <React.Fragment>
-            <footer className="min-h-96 py-10 px-10 bg-primari bg-[url('/src/assets/bg-footer.svg')]">
-                    <div className="flex justify-between items-center mx-5">
+            <footer className="sm:min-h-96 sm:py-10 sm:px-10 xl:min-h-96 xl:py-10 xl:px-10 bg-primari bg-center bg-[url('/src/assets/bg-footer.svg')]">
+                    <div className="sm:flex sm:justify-between sm:items-center sm:mx-5 xl:flex xl:justify-between xl:items-center xl:mx-5">
                         <div>
                             <a href="/"><img src={apotekcempakaFooter} alt="footer-image"></img></a>
-                            <p className="py-2 text-lg font-poppins text-sekunder tracking-widest">Teman sehatmu setiap saat!</p>
+                            <p className="xl:py-2 text-lg font-poppins text-sekunder tracking-widest">Teman sehatmu setiap saat!</p>
                             <div className="text-3xl text-sekunder py-2">
                                 <a href="#"><FontAwesomeIcon className="mr-2 px-2" icon={faInstagram} /></a>
                                 <a href="#"><FontAwesomeIcon className="mr-2 px-2" icon={faTelegram} /></a>
@@ -20,7 +20,7 @@ function Footer(){
                                 <a href="#"><FontAwesomeIcon className="mr-2 px-2" icon={faYoutube} /></a>
                             </div>
                         </div>
-                        <div className="nav-navigation list-none font-semibold">
+                        <div className="list-none font-semibold">
                             <h2 className="px-4 text-2xl font-poppins text-sekunder">Navigasi</h2>
                             <div className="text-lg font-poppins font-normal tracking-wider">
                                 <p className="px-4 text-sekunder"><a href="/">Beranda</a></p>
