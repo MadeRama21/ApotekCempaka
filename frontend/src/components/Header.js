@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightToBracket, faBars } from "@fortawesome/free-solid-svg-icons";
 import apotekcempaka from '../assets/apotekcempaka.svg';
 
 function Header(){
@@ -20,8 +20,12 @@ function Header(){
                     <div className="login_logo text-sekunder">
                         <FontAwesomeIcon icon={faArrowRightToBracket} />
                     </div>
+                    <div className="xl:hidden">
+                        <FontAwesomeIcon icon={faBars} />
+                    </div>
                 </div>  
             </nav>
+
         </React.Fragment>
     );
 }
