@@ -9,10 +9,10 @@ function Produk() {
     return (
         <React.Fragment>
             <Header/>
-            <section className="min-h-screen mx-36">
+            <section className="min-h-screen font-poppins xl:mx-36 lg:mx-28 md:mx-20 sm:mx-14 min-[320px]:mx-14">
                 <div className="flex justify-between items-center py-10">
                     <div>
-                        <h1 className="text-primari font-bold text-xl">Produk</h1>
+                        <h1 className="text-primari font-bold text-2xl">Produk</h1>
                     </div>
                     <div>
                         <form className="max-w-md mx-auto min-w-96">   
@@ -34,7 +34,7 @@ function Produk() {
                     </div>
                 </div>
 
-                <div className="py-10 grid grid-cols-5 gap-5">
+                <div className="pt-2 pb-20 grid xl:grid-cols-5 gap-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 min-[320px]:grid-cols-2">
                     <div className="h-70">
                         <div className="">
                                 <img className="w-full max-w-60 rounded-t-lg" src={fotoProduk}></img>
