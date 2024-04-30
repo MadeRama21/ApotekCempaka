@@ -1,0 +1,73 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Detail Data Obat</h2>
+            <% if (!dataApoteks) { %>
+                <div class="alert alert-danger fw-bold" role="alert">
+                    Data Obat yang anda cari tidak ada! <a href="/apotek" class="alert-link fw-normal">&laquo;Kembali ke
+                        Data Obat</a>.
+                </div>
+                <% } else { %>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                #<%= dataApoteks.kodeObat %>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                Jenis Obat : <%= dataApoteks.jenisObat %>
+                            </h6>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                Nama Obat : <%= dataApoteks.namaObat %>
+                            </h6>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                Indikasi : <%= dataApoteks.indikasi %>
+                            </h6>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                Tanggal Kadeluarsa : <%= new Date(dataApoteks.expired).toLocaleDateString('id-ID') %>
+                            </h6>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                Bentuk Obat : <%= dataApoteks.bentukObat %>
+                            </h6><a href="/apotek/update/<%= dataApoteks.kodeObat %>" class="btn btn-info badge">Edit
+                                data</a>
+                            <!-- <a href=" /apotek/delete/<%=dataApoteks.kodeObat %>" class="btn btn-danger badge"
+                                onclick="return confirm('Apakah yakin untuk menghapus data?')">Hapus data</a> -->
+                            <!-- <form method="POST" action="/apotek/<%= dataApoteks.kodeObat %>?_method=DELETE"
+                                class="d-inline" onclick="return confirm('Apakah yakin untuk menghapus data?')">
+                                <button type="submit" class="btn btn-danger badge">Hapus</button>
+                            </form> -->
+                            <form id="deleteForm" method="POST"
+                                action="/apotek/<%= dataApoteks.kodeObat %>?_method=DELETE" class="d-inline">
+                                <button type="button" class="btn btn-danger badge" data-bs-toggle="modal"
+                                    data-bs-target="#deleteConfirmationModal">Hapus</button>
+                            </form>
+
+                            <!-- Modal Konfirmasi Penghapusan -->
+                            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1"
+                                aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteConfirmationModalLabel">Konfirmasi
+                                                Penghapusan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Apakah Anda yakin ingin menghapus data?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-danger"
+                                                onclick="document.getElementById('deleteForm').submit();">Hapus</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/apotek" class="card-link d-block mt-3">&laquo;Kembali ke Data Obat</a>
+                        </div>
+                    </div>
+                    <% } %>
+        </div>
+    </div>
+</div>

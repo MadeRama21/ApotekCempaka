@@ -1,0 +1,110 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Form Ubah data Obat</h2>
+            <% if (typeof errors !='undefined' ) { %>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <% errors.forEach(error=> { %>
+                            <li>
+                                <%= error.msg %>
+                            </li>
+                            <% }) %>
+                    </ul>
+                </div>
+                <% } %>
+
+
+                    <form method="post" action="/apotek?_method=PUT">
+                        <input type="hidden" name="_id" value="<%= dataApoteks._id %>">
+                        <input type="hidden" name="kodeLama"
+                            value="<%= dataApoteks.kodeLama || dataApoteks.kodeObat %>">
+                        <div class="mb-3">
+                            <label for="kodeObat" class="form-label">Kode Obat :</label>
+                            <input type="text" class="form-control" id="kodeObat" name="kodeObat" required
+                                value="<%= dataApoteks.kodeObat %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="jenisObat" class="form-label">Jenis Obat :</label>
+                            <div class="form-floating">
+                                <select class="form-select" id="jenisObat" name="jenisObat" required>
+                                    <option selected disabled>Pilih Jenis Obat</option>
+                                    <option value="Ringan" <%=dataApoteks.jenisObat==='Ringan' ? 'selected' : '' %>
+                                        >Ringan</option>
+                                    <option value="Sedang" <%=dataApoteks.jenisObat==='Sedang' ? 'selected' : '' %>
+                                        >Sedang</option>
+                                    <option value="Keras" <%=dataApoteks.jenisObat==='Keras' ? 'selected' : '' %>>Keras
+                                    </option>
+                                </select>
+                                <label for="jenisObat">Jenis Obat yang dipilih</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="namaObat" class="form-label">Nama Obat :</label>
+                            <input type="text" class="form-control" id="namaObat" name="namaObat" required
+                                value="<%= dataApoteks.namaObat %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="indikasi" class="form-label">Indikasi :</label>
+                            <input type="text" class="form-control" id="indikasi" name="indikasi" required
+                                value="<%= dataApoteks.indikasi %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="expired" class="form-label">Tanggal Kedaluwarsa :</label>
+                            <% const expiredDate=new Date(dataApoteks.expired); %>
+                                <% const formattedDate=expiredDate.toISOString().split('T')[0]; %>
+                                    <input type="date" class="form-control" id="expired" name="expired" required
+                                        value="<%= formattedDate %>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bentukObat" class="form-label">Bentuk Obat :</label>
+                            <div class="form-floating">
+                                <select class="form-select" id="bentukObat" name="bentukObat" required>
+                                    <option selected disabled>Pilih Bentuk Obat</option>
+                                    <option value="Tablet" <%=dataApoteks.bentukObat==='Tablet' ? 'selected' : '' %>
+                                        >Tablet</option>
+                                    <option value="Kapsul" <%=dataApoteks.bentukObat==='Kapsul' ? 'selected' : '' %>
+                                        >Kapsul</option>
+                                    <option value="Sirup" <%=dataApoteks.bentukObat==='Sirup' ? 'selected' : '' %>
+                                        >Sirup</option>
+                                </select>
+                                <label for="bentukObat">Bentuk Obat yang dipilih</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Ubah data Obat</button>
+                        <!-- <form id="updateForm">
+                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#updateConfirmationModal">Ubah Data</button>
+                        </form>
+
+                        <div class="modal fade" id="updateConfirmationModal" tabindex="-1"
+                            aria-labelledby="updateConfirmationModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateConfirmationModalLabel">Konfirmasi
+                                            Mengubah data</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Apakah Anda yakin ingin mengubah data?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Batal</button>
+                                        <button type="submit" class="btn btn-primary">Ubah data</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </form> -->
+                        <a href="/apotek" class="card-link d-block mt-3">&laquo;Kembali ke
+                            detail
+                            Data Obat</a>
+        </div>
+
+    </div>
+</div>

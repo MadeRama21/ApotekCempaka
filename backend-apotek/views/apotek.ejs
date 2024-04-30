@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Daftar Data Obat</h2>
+            <a href="apotek/add" class="btn btn-primary mb-2 badge">Tambah data Obat</a>
+            <% if (msg.length !== 0) { %>
+                <div class="alert alert-success" role="alert">
+                   <%= msg %>
+                </div>
+                <% } %>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Kode Obat</th>
+                                <th scope="col">Nama Obat</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <% if (dataApoteks.length===0) { %>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="alert alert-warning fw-bold" role="alert">
+                                            Data Obat masih kosong.
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <% } %>
+                                    <% dataApoteks.forEach((apotek, i)=> { i++ %>
+                                        <tr>
+                                            <th scope="row">
+                                                <%= i++ %>
+                                            </th>
+                                            <td>
+                                                <%= apotek.kodeObat %>
+                                            </td>
+                                            <td>
+                                                <%= apotek.namaObat %>
+                                            </td>
+                                            <td><a href="/apotek/<%= apotek.kodeObat %>"
+                                                    class="btn btn-success badge rounded-pill"><i
+                                                        class="bi bi-info-circle"></i>
+                                                    Detail</a></td>
+                                        </tr>
+                                        <% }) %>
+
+
+                        </tbody>
+                    </table>
+        </div>
+    </div>
+</div>

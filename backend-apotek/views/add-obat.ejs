@@ -1,0 +1,75 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Form Tambah data Obat</h2>
+            <% if (typeof errors !='undefined' ) { %>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <% errors.forEach(error=> { %>
+                            <li>
+                                <%= error.msg %>
+                            </li>
+                            <% }) %>
+                    </ul>
+                </div>
+                <% } %>
+
+
+                    <form method="post" action="/apotek">
+                        <div class="mb-3">
+                            <label for="kodeObat" class="form-label">Kode Obat :</label>
+                            <input type="text" class="form-control" id="kodeObat" name="kodeObat"
+                                value="<%= typeof kodeObat !== 'undefined' ? kodeObat : '' %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="jenisObat" class="form-label">Jenis Obat :</label>
+                            <div class="form-floating">
+                                <select class="form-select" id="jenisObat" name="jenisObat" required>
+                                    <option selected disabled>Pilih Jenis Obat</option>
+                                    <option value="Ringan">Ringan</option>
+                                    <option value="Sedang">Sedang</option>
+                                    <option value="Keras">Keras</option>
+
+                                </select>
+                                <label for="jenisObat">Jenis Obat yang dipilih</label>
+                            </div>
+
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="namaObat" class="form-label">Nama Obat :</label>
+                            <input type="text" class="form-control" id="namaObat" name="namaObat"
+                                value="<%= typeof namaObat !== 'undefined' ? namaObat : '' %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="indikasi" class="form-label">Indikasi :</label>
+                            <input type="text" class="form-control" id="indikasi" name="indikasi"
+                                value="<%= typeof indikasi !== 'undefined' ? indikasi : '' %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="expired" class="form-label">Tanggal Kadeluarsa :</label>
+                            <input type="date" class="form-control" id="expired" name="expired"
+                                value="<%= typeof expired !== 'undefined' ? expired : '' %>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bentukObat" class="form-label">Bentuk Obat :</label>
+                            <div class="form-floating">
+                                <select class="form-select" id="bentukObat" name="bentukObat" required>
+                                    <option selected disabled >Pilih Bentuk Obat</option>
+                                    <option value="Tablet">Tablet</option>
+                                    <option value="Kapsul" >Kapsul</option>
+                                    <option value="Sirup" >Sirup</option>
+                                </select>
+                                <label for="bentukObat">Bentuk Obat yang dipilih</label>
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Tambah data</button>
+                        <a href="/apotek" class="card-link d-block mt-3">&laquo;Kembali ke Data Obat</a>
+
+                    </form>
+        </div>
+
+    </div>
+</div>
