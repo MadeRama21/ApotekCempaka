@@ -1,0 +1,34 @@
+GET http://localhost:5000/dataObat
+
+###
+GET http://localhost:5000/dataObat/B11
+
+###
+POST http://localhost:5000/dataObat
+Content-Type: application/json
+
+{
+    "kodeObat": "B10",
+    "jenisObat": "Ringan",
+    "namaObat": "Panadol",
+    "indikasi": "Demam",
+    "expired": "2024-07-20",
+    "bentukObat": "Kapsul"
+}
+
+###
+PATCH  http://localhost:5000/dataObat/B11
+Content-Type: application/json
+
+{
+    "kodeObat": "B11",
+    "jenisObat": "Ringan",
+    "namaObat": "Panadol",
+    "indikasi": "Demam",
+    "expired": "2024-07-20T00:00:00.000Z",
+    "bentukObat": "Kapsul"
+}
+
+###
+DELETE   http://localhost:5000/dataObat/B11
+Content-Type: application/json

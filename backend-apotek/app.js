@@ -1,107 +1,132 @@
-const express = require("express");
-const expressLayouts = require("express-ejs-layouts");
-const { body, validationResult, check } = require("express-validator");
-const methodOverride = require("method-override");
-const session = require("express-session");
-const cookieParser = require("cookie-parser");
-const flash = require("connect-flash");
-require("./utils/db");
-const Apotek = require("./model/apotek");
+// const express = require("express");
+import express from "express"
+
+// const expressLayouts = require("express-ejs-layouts");
+
+// const { body, validationResult, check } = require("express-validator");
+
+// const methodOverride = require("method-override");
+
+// // const session = require("express-session");
+// import session from "express-session"
+
+// // const cookieParser = require("cookie-parser");
+// import cookieParser from "cookie-parser";
+
+// // const flash = require("connect-flash");
+// import flash from "connect-flash"
+
+// require("./utils/db"); // connect database
+
+import mongoose from "mongoose";
+mongoose.connect("mongodb://127.0.0.1:27017/Apotek");
+
+const db = mongoose.connection
+db.on('error', (err) => console.log(err))
+db.once('open', () => console.log('Database Connected'))
+// const Apotek = require("./model/apotek");
+
+import cors from "cors"
+import UserRoutes from "./routes/UserRoutes.js"
 
 const app = express();
 const port = 5000;
 
 //setup method override
-app.use(methodOverride("_method"));
+// app.use(methodOverride("_method"));
 
 // gunakan ejs
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
 //Third party middleware
 
-app.use(expressLayouts);
+// app.use(expressLayouts);
 
 //Built in middleware
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-//Konfigurasi flash
-app.use(cookieParser("secret"));
-app.use(
-  session({
-    cookie: { maxAge: 6000 },
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
-app.use(flash());
+//Konfigurasi flash aku hide dulu
+// app.use(cookieParser("secret"));
+// app.use(
+//   session({
+//     cookie: { maxAge: 6000 },
+//     secret: "secret",
+//     resave: true,
+//     saveUninitialized: true,
+//   })
+// );
+// app.use(flash());
 
-// halaman home
-app.get("/", (req, res) => {
-  res.render("index", {
-    layout: "layout/main-layout",
-    title: "Halaman Home",
-  });
-});
+// kode untuk interaksi kedepannya dengan frontend
+app.use(cors());
+app.use(express.json())
+app.use(UserRoutes)
 
-app.get("/apotek", async (req, res) => {
-  const dataApoteks = await Apotek.find();
-  res.render("apotek", {
-    layout: "layout/main-layout",
-    title: "Halaman Data Obat",
-    dataApoteks,
-    msg: req.flash("msg"),
-  });
-});
+// halaman home aku hide dulu
+// app.get("/", (req, res) => {
+//   res.render("index", {
+//     layout: "layout/main-layout",
+//     title: "Halaman Home",
+//   });
+// });
 
-// halaman form tambah data obat
-app.get("/apotek/add", (req, res) => {
-  res.render("add-obat", {
-    title: "Form Tambah data Obat",
-    layout: "layout/main-layout",
-  });
-});
+// app.get("/apotek", async (req, res) => {
+//   const dataApoteks = await Apotek.find();
+//   res.render("apotek", {
+//     layout: "layout/main-layout",
+//     title: "Halaman Data Obat",
+//     dataApoteks,
+//     msg: req.flash("msg"),
+//   });
+// });
 
-//proses tambah data obat
+// halaman form tambah data obat aku hide dulu
+// app.get("/apotek/add", (req, res) => {
+//   res.render("add-obat", {
+//     title: "Form Tambah data Obat",
+//     layout: "layout/main-layout",
+//   });
+// });
 
-app.post(
-  "/apotek",
-  [
-    body("kodeObat").custom(async (value) => {
-      const duplikat = await Apotek.findOne({ kodeObat: value });
-      if (duplikat) {
-        throw new Error("Kode Obat sudah digunakan!");
-      }
-      return true;
-    }),
-    check("kodeObat", "Format Kode obat salah!").matches(/^[A-Z0-9]{3}$/),
-    check("indikasi", "Indikasi tidak valid").matches(/^[a-zA-Z0-9\s]+$/),
-    check("expired", "Tanggal Kadeluarsa tidak valid").isDate(),
-    check("jenisObat", "Tolong pilih jenis obat!").matches(/^[a-zA-Z0-9\s]+$/),
-    check("bentukObat", "Tolong pilih bentuk data!").matches(/^[a-zA-Z0-9\s]+$/),
-  ],
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      // return res.status(400).json({ errors: errors.array() });
-      res.render("add-obat", {
-        title: "Form Tambah data Obat",
-        layout: "layout/main-layout",
-        errors: errors.array(),
-        kodeObat: req.body.kodeObat,
-        jenisObat: req.body.jenisObat,
-        namaObat: req.body.namaObat,
-        indikasi: req.body.indikasi,
-        expired: req.body.expired,
-        bentukObat: req.body.bentukObat,
-      });
-    } else {
-      await Apotek.insertMany(req.body);
-      req.flash("msg", "Data Obat berhasil ditambahkan!");
-      res.redirect("/apotek");
-    }
-  }
-);
+//proses tambah data obat aku hide dulu
+// app.post(
+//   "/apotek",
+//   [
+//     body("kodeObat").custom(async (value) => {
+//       const duplikat = await Apotek.findOne({ kodeObat: value });
+//       if (duplikat) {
+//         throw new Error("Kode Obat sudah digunakan!");
+//       }
+//       return true;
+//     }),
+//     check("kodeObat", "Format Kode obat salah!").matches(/^[A-Z0-9]{3}$/),
+//     check("indikasi", "Indikasi tidak valid").matches(/^[a-zA-Z0-9\s]+$/),
+//     check("expired", "Tanggal Kadeluarsa tidak valid").isDate(),
+//     check("jenisObat", "Tolong pilih jenis obat!").matches(/^[a-zA-Z0-9\s]+$/),
+//     check("bentukObat", "Tolong pilih bentuk data!").matches(/^[a-zA-Z0-9\s]+$/),
+//   ],
+//   async (req, res) => {
+//     const errors = validationResult(req);
+//     if (!errors.isEmpty()) {
+//       // return res.status(400).json({ errors: errors.array() });
+//       res.render("add-obat", {
+//         title: "Form Tambah data Obat",
+//         layout: "layout/main-layout",
+//         errors: errors.array(),
+//         kodeObat: req.body.kodeObat,
+//         jenisObat: req.body.jenisObat,
+//         namaObat: req.body.namaObat,
+//         indikasi: req.body.indikasi,
+//         expired: req.body.expired,
+//         bentukObat: req.body.bentukObat,
+//       });
+//     } else {
+//       await Apotek.insertMany(req.body);
+//       req.flash("msg", "Data Obat berhasil ditambahkan!");
+//       res.redirect("/apotek");
+//     }
+//   }
+// );
 
 // proses delete data
 // app.get("/apotek/delete/:kodeObat", async (req, res) => {
@@ -117,84 +142,85 @@ app.post(
 //   }
 // });
 
-app.delete("/apotek/:kodeObat", async (req, res) => {
-  await Apotek.deleteOne({ kodeObat: req.params.kodeObat });
-  req.flash("msg", "Data Obat berhasil dihapus!");
-  res.redirect("/apotek");
-});
+// delete aku hide dulu
+// app.delete("/apotek/:kodeObat", async (req, res) => {
+//   await Apotek.deleteOne({ kodeObat: req.params.kodeObat });
+//   req.flash("msg", "Data Obat berhasil dihapus!");
+//   res.redirect("/apotek");
+// });
 
-// halaman form update data obat
-app.get("/apotek/update/:kodeObat", async (req, res) => {
-  const dataApoteks = await Apotek.findOne({ kodeObat: req.params.kodeObat });
+// halaman form update data obat aku hide dulu
+// app.get("/apotek/update/:kodeObat", async (req, res) => {
+//   const dataApoteks = await Apotek.findOne({ kodeObat: req.params.kodeObat });
 
-  res.render("update-obat", {
-    title: "Form Edit data Obat",
-    layout: "layout/main-layout",
-    dataApoteks,
-  });
-});
+//   res.render("update-obat", {
+//     title: "Form Edit data Obat",
+//     layout: "layout/main-layout",
+//     dataApoteks,
+//   });
+// });
 
-// Proses update data obat
-app.put(
-  "/apotek",
-  [
-    body("kodeObat").custom(async (value, { req }) => {
-      const duplikat = await Apotek.findOne({ kodeObat: value });
-      if (value !== req.body.kodeLama && duplikat) {
-        throw new Error("Kode Obat sudah terdaftar!");
-      }
-      return true;
-    }),
-    check("kodeObat", "Kode obat tidak valid!").matches(/^[A-Z0-9]+$/),
-    check("indikasi", "Indikasi tidak valid").matches(/^[a-zA-Z0-9\s]+$/),
-    check("expired", "Tanggal Kadeluarsa tidak valid").isDate(),
-    check("jenisObat", "Jenis Obat tidak valid!").matches(/^[a-zA-Z0-9\s]+$/),
-    check("bentukObat", "Bentuk Obat tidak valid!").matches(/^[a-zA-Z0-9\s]+$/),
-  ],
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      // return res.status(400).json({ errors: errors.array() });
-      res.render("update-obat", {
-        title: "Form Ubah data Obat",
-        layout: "layout/main-layout",
-        errors: errors.array(),
-        dataApoteks: req.body,
-      });
-    } else {
-      const formattedDate = new Date(req.body.expired).toISOString().split("T")[0];
-      await Apotek.updateOne(
-        { _id: req.body._id },
-        {
-          $set: {
-            kodeObat: req.body.kodeObat,
-            jenisObat: req.body.jenisObat,
-            namaObat: req.body.namaObat,
-            indikasi: req.body.indikasi,
-            expired: formattedDate,
-            bentukObat: req.body.bentukObat,
-          },
-        }
-      );
-      //kirimkan flash message
-      req.flash("msg", "Data Obat berhasil diubah!");
-      res.redirect("/apotek");
-    }
-  }
-);
+// Proses update data obat aku hide dulu
+// app.put(
+//   "/apotek",
+//   [
+//     body("kodeObat").custom(async (value, { req }) => {
+//       const duplikat = await Apotek.findOne({ kodeObat: value });
+//       if (value !== req.body.kodeLama && duplikat) {
+//         throw new Error("Kode Obat sudah terdaftar!");
+//       }
+//       return true;
+//     }),
+//     check("kodeObat", "Kode obat tidak valid!").matches(/^[A-Z0-9]+$/),
+//     check("indikasi", "Indikasi tidak valid").matches(/^[a-zA-Z0-9\s]+$/),
+//     check("expired", "Tanggal Kadeluarsa tidak valid").isDate(),
+//     check("jenisObat", "Jenis Obat tidak valid!").matches(/^[a-zA-Z0-9\s]+$/),
+//     check("bentukObat", "Bentuk Obat tidak valid!").matches(/^[a-zA-Z0-9\s]+$/),
+//   ],
+//   async (req, res) => {
+//     const errors = validationResult(req);
+//     if (!errors.isEmpty()) {
+//       // return res.status(400).json({ errors: errors.array() });
+//       res.render("update-obat", {
+//         title: "Form Ubah data Obat",
+//         layout: "layout/main-layout",
+//         errors: errors.array(),
+//         dataApoteks: req.body,
+//       });
+//     } else {
+//       const formattedDate = new Date(req.body.expired).toISOString().split("T")[0];
+//       await Apotek.updateOne(
+//         { _id: req.body._id },
+//         {
+//           $set: {
+//             kodeObat: req.body.kodeObat,
+//             jenisObat: req.body.jenisObat,
+//             namaObat: req.body.namaObat,
+//             indikasi: req.body.indikasi,
+//             expired: formattedDate,
+//             bentukObat: req.body.bentukObat,
+//           },
+//         }
+//       );
+//       //kirimkan flash message
+//       req.flash("msg", "Data Obat berhasil diubah!");
+//       res.redirect("/apotek");
+//     }
+//   }
+// );
 
-// halaman detail obat
-app.get("/apotek/:kodeObat", async (req, res) => {
-  //   const dataApoteks = findData(req.params.kodeObat);
-  const dataApoteks = await Apotek.findOne({
-    kodeObat: req.params.kodeObat,
-  });
-  res.render("detail", {
-    layout: "layout/main-layout",
-    title: "Halaman detail data obat",
-    dataApoteks,
-  });
-});
+// halaman detail obat aku hide dulu
+// app.get("/apotek/:kodeObat", async (req, res) => {
+//   //   const dataApoteks = findData(req.params.kodeObat);
+//   const dataApoteks = await Apotek.findOne({
+//     kodeObat: req.params.kodeObat,
+//   });
+//   res.render("detail", {
+//     layout: "layout/main-layout",
+//     title: "Halaman detail data obat",
+//     dataApoteks,
+//   });
+// });
 
 app.listen(port, () => {
   console.log(`Mongo Apotek App | listening at http:/localhost:${port}`);

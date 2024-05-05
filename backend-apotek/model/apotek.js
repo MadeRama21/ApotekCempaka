@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 //Membuat schema
 const Apotek = mongoose.model("Apotek", {
@@ -28,4 +28,4 @@ const Apotek = mongoose.model("Apotek", {
   },
 });
 
-module.exports = Apotek;
+export default Apotek
