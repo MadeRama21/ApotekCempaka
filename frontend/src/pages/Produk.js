@@ -12,7 +12,7 @@ function Produk() {
             <section className="min-h-screen font-poppins xl:mx-36 lg:mx-28 md:mx-20 sm:mx-14 min-[320px]:mx-14">
                 <div className="flex justify-between items-center py-10">
                     <div>
-                        <h1 className="text-primari font-bold text-2xl">Produk</h1>
+                        <h1 className="text-primari font-bold text-2xl uppercase">Produk</h1>
                     </div>
                     <div>
                         <form className="max-w-md mx-auto min-w-auto ml-1">   
