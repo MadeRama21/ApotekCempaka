@@ -15,7 +15,7 @@ function Header(){
                         <li className="px-4 text-sekunder"><a href="/">Beranda</a></li>
                         <li className="px-4 text-sekunder"><a href="/profil">Profil Apotek</a></li>
                         <li className="px-4 text-sekunder"><a href="/produk">Produk</a></li>
-                        <li className="px-4 text-sekunder"><a href="/add_obat">Tambah Obat</a></li>
+                        <li className="px-4 text-sekunder"><a href="/apotek/add_obat">Tambah Obat</a></li>
                         <li className="px-4 text-sekunder"><a href="/apotek">Daftar Obat</a></li>
                         <li className="px-4 text-sekunder"><a href="/kontak">Kontak</a></li>
                     </div>
