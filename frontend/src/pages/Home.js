@@ -37,7 +37,7 @@ function Home() {
                 <div className="sm:flex sm:flex-col-reverse sm:py-24 sm:gap-4 xl:flex xl:flex-row xl:justify-evenly xl:max-w-full xl:py-24">
                     <div className="sm:w-3/4 sm:text-center sm:self-center xl:text-left  xl:w-[40%] font-poppins xl:self-baseline">
                         <h2 className="text-primari font-bold text-3xl tracking-wide">Sakit dan Sedang Butuh Obat?</h2>
-                        <p className="sm:mb-10 xl:w-3/4 xl:mb-36">Tenang, kami siap membantu Anda memilih obat yang tepat! Kami tidak hanya menawarkan obat-obatan yang dibutuhkan untuk mengatasi berbagai masalah kesehatan. Cek profil kami dibawah ini!</p>
+                        <p className="sm:mb-10 xl:w-3/4 xl:mb-36">Tenang, kami siap membantu Anda memilih obat yang tepat! Kami tidak hanya menawarkan obat-obatan yang dibutuhkan untuk mengatasi berbagai masalah kesehatan. Cek profil kami dibawah ini!!</p>
                         <ButtonProfil/>
                     </div>
                     <div className="sm:flex sm:aspect[9:16] sm:justify-center sm:items-center">
