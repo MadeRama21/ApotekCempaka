@@ -49,7 +49,7 @@ function Add_obat() {
         <React.Fragment>
             <Header/>
                 <section className="min-h-screen font-poppins">
-                    <div className="flex flex-col justify-center items-center py-10">
+                    <div className="flex flex-col justify-center items-center py-10 mt-24">
 
                     <h1>Silahkan Tambah Data Obat</h1>
 
