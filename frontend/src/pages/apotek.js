@@ -40,10 +40,11 @@ function Apotek() {
                 <div className="flex flex-col mt-32 items-center">
                     <h2 className="mb-10 text-3xl font-bold font-poppins uppercase">Daftar Obat Apotek Cempaka</h2>
                     <div>
-                        <Link className="bg-primari xl:py-3 xl:px-5 xl:w-40 rounded-md text-sekunder font-poppins text-sm" to={"add_obat"}>
+                        <Link className="bg-primari xl:py-3 xl:px-5 xl:w-40 sm:mt-32 sm:py-3 sm:px-5 sm:w-40 rounded-md text-sekunder font-poppins text-sm" to={"add_obat"}>
                             Tambah Data Obat
                         </Link>
-                        <table cellPadding={10} className="border-2 border-primari xl:mt-10 font-poppins">
+                        <div className="xl:max-w-full xl:w-full md:max-w-full sm:max-w-screen-sm sm:w-full">
+                            <table cellPadding={10} className="border-2 border-primari xl:mt-10 sm:mt-10 font-poppins">
                             <thead className="border-2 border-primari">
                                 <tr className="border-2 border-primari text-center text-sekunder font-semibold bg-primari bg-opacity-80 h-16">
                                     <td className="border-2 border-primari w-10">No</td>
@@ -67,11 +68,11 @@ function Apotek() {
                                         <td className="border-2 border-primari">{formatTanggal(obat.expired)}</td>
                                         <td className="border-2 border-primari">{obat.bentukObat}</td>
                                         <td className="border-2 border-primari text-center">
-                                            <div className="flex justify-evenly items-center">
-                                                <Link className="bg-primari xl:py-2 xl:px-4 xl:w-20 rounded-md text-sekunder font-poppins text-sm" to={`edit/${obat.kodeObat}`}>
+                                            <div className="xl:flex xl:justify-evenly xl:items-center">
+                                                <Link className="bg-primari xl:py-2 xl:px-4 xl:w-20 sm:py-1 sm:px-2 sm:w-10 rounded-md text-sekunder font-poppins text-sm" to={`edit/${obat.kodeObat}`}>
                                                     Edit
                                                 </Link>
-                                                <button className="bg-danger xl:py-2 xl:px-4 xl:w-20 rounded-md text-sekunder font-poppins text-sm" onClick={() => {setModalOpen(true); setKodeObatToDelete(obat.kodeObat)}}>
+                                                <button className="bg-danger xl:py-2 xl:px-4 xl:w-20 sm:py-1 sm:px-2 sm:w-16 rounded-md text-sekunder font-poppins text-sm" onClick={() => {setModalOpen(true); setKodeObatToDelete(obat.kodeObat)}}>
                                                     Delete
                                                 </button>
                                             </div>
@@ -80,6 +81,7 @@ function Apotek() {
                                 ))}
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </section>
