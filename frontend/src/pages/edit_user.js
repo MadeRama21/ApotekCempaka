@@ -71,7 +71,7 @@ function EditObat() {
                                     <div className="field flex flex-col gap-1">
                                         <label className="text-sm">Kode Obat</label>
                                         <div className="control">
-                                            <input className={`min-h-14 block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.kodeObat ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={kodeObats} onChange={(e) => setKodeObat(e.target.value)} placeholder="Masukkan Kode Obat"/>
+                                            <input className={`min-h-14 block w-full rounded-md border-0 bg-block py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.kodeObat ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6 pointer-events-none`} type="text" value={kodeObat} onChange={(e) => setKodeObat(e.target.value)} placeholder="Masukkan Kode Obat"/>
                                             {errors.kodeObat && <span className="text-danger text-sm">*{errors.kodeObat}</span>}
                                         </div>
                                     </div>
