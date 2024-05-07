@@ -12,7 +12,7 @@ function Header(){
                     <div className="cursor-pointer">
                         <img src={apotekcempaka} alt="apotek_cempaka" />
                     </div>
-                    <div onClick={() => setOpen(!open)} className="text-2xl absolute right-8 text-sekunder top-8 sm:right-14 cursor-pointer md:hidden transition-all ease-in duration-500">
+                    <div onClick={() => setOpen(!open)} className="text-2xl absolute right-8 text-sekunder top-8 sm:right-14 min-[320px]::right-14 cursor-pointer md:hidden transition-all ease-in duration-500">
                         {/* Menggunakan ikon yang sesuai tergantung pada status 'open' */}
                         <FontAwesomeIcon icon={open ? faXmark : faBars} />
                     </div>

@@ -9,7 +9,7 @@ function Produk() {
     return (
         <React.Fragment>
             <Header/>
-            <section className="min-h-screen font-poppins xl:mx-36 lg:mx-28 md:mx-20 sm:mx-14 min-[320px]:mx-14">
+            <section className="min-h-screen font-poppins xl:mx-36 lg:mx-28 md:mx-20 sm:mx-14 min-[320px]:mx-14 mt-24">
                 <div className="flex justify-between items-center py-10">
                     <div>
                         <h1 className="text-primari font-bold text-2xl uppercase">Produk</h1>
