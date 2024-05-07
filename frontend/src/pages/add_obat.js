@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import axios from "axios";
 
 function Add_obat() {
@@ -54,11 +54,11 @@ function Add_obat() {
                     <h1 className="mb-5">Silahkan Tambah Data Obat</h1>
 
                     <div className="w-full flex justify-center">
-                        <form className="flex flex-col gap-3 w-1/3" onSubmit={saveDataObat}>
+                        <form className="flex flex-col gap-3 w-3/4" onSubmit={saveDataObat}>
                             <div className="flex flex-col gap-1">
                                 <label className="text-sm">Kode Obat</label>
                                 <div className="">
-                                    <input className={`block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.kodeObat ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={kodeObat} onChange={(e) => setKodeObat(e.target.value)} placeholder="Masukkan Kode Obat"/>
+                                    <input className={`min-h-14 block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.kodeObat ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={kodeObat} onChange={(e) => setKodeObat(e.target.value)} placeholder="Masukkan Kode Obat"/>
                                     {errors.kodeObat && <span className="text-danger text-sm">*{errors.kodeObat}</span>}
                                 </div>
                             </div>
@@ -66,7 +66,7 @@ function Add_obat() {
                                 <label className="text-sm">Jenis Obat</label>
                                 <div className="control">
                                     <div className="select">
-                                        <select className="bg-gray-50 border outline-none border-primari text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 pl-2.5" value={jenisObat} onChange={(e) => setJenisObat(e.target.value)}>
+                                        <select className="min-h-14 bg-gray-50 border outline-none border-primari text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 pl-2.5" value={jenisObat} onChange={(e) => setJenisObat(e.target.value)}>
                                             <option value="Ringan">Ringan</option>
                                             <option value="Sedang">Sedang</option>
                                             <option value="Keras">Keras</option>
@@ -77,21 +77,21 @@ function Add_obat() {
                             <div className="flex flex-col gap-1">
                                 <label className="text-sm">Nama Obat</label>
                                 <div className="control">
-                                    <input className={`block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.namaObat ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={namaObat} onChange={(e) => setNamaObat(e.target.value)} placeholder="Masukkan Nama Obat"/>
+                                    <input className={`min-h-14 block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.namaObat ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={namaObat} onChange={(e) => setNamaObat(e.target.value)} placeholder="Masukkan Nama Obat"/>
                                     {errors.namaObat && <span className="text-danger text-sm">*{errors.namaObat}</span>}
                                 </div>
                             </div>
                             <div className="flex flex-col gap-1">
                                 <label className="text-sm">Fungsi</label>
                                 <div className="control">
-                                    <input className={`block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.indikasi ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={indikasi} onChange={(e) => setIndikasi(e.target.value)} placeholder="Masukkan Fungsi Obat"/>
+                                    <input className={`min-h-14 block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.indikasi ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={indikasi} onChange={(e) => setIndikasi(e.target.value)} placeholder="Masukkan Fungsi Obat"/>
                                     {errors.indikasi && <span className="text-danger text-sm">*{errors.indikasi}</span>}
                                 </div>
                             </div>
                             <div className="flex flex-col gap-1">
                                 <label className="text-sm">Expired</label>
                                 <div className="control">
-                                    <input className={`bg-gray-50 border outline-none ${errors.indikasi ? 'ring-danger' : 'ring-primari'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 py-1.5`} type="Date" value={expired} onChange={(e) => setExpired(e.target.value)} />
+                                    <input className={`block w-full pr-5 min-h-14 rounded-md bg-gray-50 border outline-none ${errors.indikasi ? 'ring-danger' : 'ring-primari'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 py-1.5`} type="Date" value={expired} onChange={(e) => setExpired(e.target.value)} />
                                     {errors.expired && <span className="text-danger text-sm">*{errors.expired}</span>}
                                 </div>
                             </div>
@@ -99,7 +99,7 @@ function Add_obat() {
                                 <label className="text-sm">Bentuk Obat</label>
                                 <div className="control">
                                     <div className="select">
-                                        <select className="bg-gray-50 border outline-none border-primari text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 pl-2.5" value={bentukObat} onChange={(e) => setBentukObat(e.target.value)}>
+                                        <select className="min-h-14 bg-gray-50 border outline-none border-primari text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 pl-2.5" value={bentukObat} onChange={(e) => setBentukObat(e.target.value)}>
                                             <option value="Sirup">Sirup</option>
                                             <option value="Tablet">Tablet</option>
                                             <option value="Kapsul">Kapsul</option>
@@ -107,11 +107,13 @@ function Add_obat() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-1">
+                            <div className="flex gap-1">
                                 <div className="control">
-                                    <button type="submit">Simpan</button>
+                                    <button className="bg-primari xl:py-2 xl:px-2 xl:w-20 rounded-md text-sekunder font-poppins text-sm" type="submit">Simpan</button>
                                 </div>
-                                <a href="/apotek">Balik</a>
+                                <Link className="bg-danger xl:py-2 xl:px-3 xl:w-20 rounded-md text-sekunder font-poppins text-sm" to={`/apotek`}>
+                                    Kembali
+                                </Link>
                             </div>
                         </form> 
                     </div>

@@ -6,7 +6,7 @@ function Profil() {
     return (
         <React.Fragment>
             <Header/>
-            <section className="min-h-screen max-w-full">
+            <section className="min-h-screen max-w-full mt-24">
                 <div className="bg-[url('/src/assets/bg_profil.svg')] min-h-40 flex justify-center items-center">
                     <div className="flex flex-col items-center justify-center text-sekunder font-poppins">
                         <h2 className="text-5xl uppercase font-bold tracking-widest mb-1">Profil Apotek</h2>
