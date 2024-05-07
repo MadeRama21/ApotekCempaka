@@ -109,9 +109,9 @@ function Add_obat() {
                             </div>
                             <div className="flex gap-1">
                                 <div className="control">
-                                    <button className="bg-primari xl:py-2 xl:px-2 xl:w-20 rounded-md text-sekunder font-poppins text-sm" type="submit">Simpan</button>
+                                    <button className="bg-primari xl:py-2 xl:px-2 xl:w-20 text-centers sm:py-2 sm:px-2 sm:w-20 rounded-md text-sekunder font-poppins text-sm" type="submit">Simpan</button>
                                 </div>
-                                <Link className="bg-danger xl:py-2 xl:px-3 xl:w-20 rounded-md text-sekunder font-poppins text-sm" to={`/apotek`}>
+                                <Link className="bg-danger xl:py-2 xl:px-3 xl:w-20 sm:py-2 text-center sm:px-2 sm:w-20 rounded-md text-sekunder font-poppins text-sm" to={`/apotek`}>
                                     Kembali
                                 </Link>
                             </div>
