@@ -34,7 +34,7 @@ function Kontak() {
                     </div>
                 </div> 
 
-                <div className="px-10 py-10 xl:pt-24 min-[320px]:pt-10 grid xl:grid-cols-2 gap-5 sm:grid-cols-1">
+                <div className="px-10 py-10 xl:pt-24 min-[320px]:pt-10 grid xl:grid-cols-2 gap-5 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
                     <div className="grid grid-rows-2 gap-5 min-h-52">
                         <div className="min-h-52">
                             <iframe className="min-h-56 min-w-full rounded shadow-2xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d697.3153593520594!2d115.22392601918115!3d-8.648561426291582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23f62a63da3cb%3A0x5ff23dc5ff8ef4e!2sApotek%20Cempaka!5e0!3m2!1sid!2sid!4v1714282896190!5m2!1sid!2sid"></iframe>

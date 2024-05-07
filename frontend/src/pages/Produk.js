@@ -29,7 +29,7 @@ function Produk() {
                     </div>
                 </div>
 
-                <div className="pt-2 pb-20 grid xl:grid-cols-5 gap-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 min-[320px]:grid-cols-2">
+                <div className="pt-2 pb-20 grid xl:grid-cols-5 gap-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-3 min-[320px]:grid-cols-2">
                     <div className="h-70">
                         <div className="">
                                 <img className="w-full max-w-60 rounded-t-lg" src={fotoProduk}></img>

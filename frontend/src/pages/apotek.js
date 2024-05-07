@@ -36,7 +36,7 @@ function Apotek() {
     return (
         <React.Fragment>
             <Header />
-            <section className="min-h-screen flex flex-row justify-center">
+            <section className="min-h-screen mb-10 flex flex-row justify-center">
                 <div className="flex flex-col mt-32 items-center">
                     <h2 className="mb-10 text-3xl font-bold font-poppins uppercase">Daftar Obat Apotek Cempaka</h2>
                     <div>
