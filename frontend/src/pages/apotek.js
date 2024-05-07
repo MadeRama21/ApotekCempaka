@@ -37,7 +37,7 @@ function Apotek() {
         <React.Fragment>
             <Header />
             <section className="min-h-screen flex flex-row justify-center">
-                <div className="flex flex-col mt-10 items-center">
+                <div className="flex flex-col mt-32 items-center">
                     <h2 className="mb-10 text-3xl font-bold font-poppins uppercase">Daftar Obat Apotek Cempaka</h2>
                     <div>
                         <Link className="bg-primari xl:py-3 xl:px-5 xl:w-40 rounded-md text-sekunder font-poppins text-sm" to={"add_obat"}>
