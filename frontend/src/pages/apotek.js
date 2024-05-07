@@ -45,7 +45,7 @@ function Apotek() {
                         </Link>
                         <table cellPadding={10} className="border-2 border-primari xl:mt-10 font-poppins">
                             <thead className="border-2 border-primari">
-                                <tr className="border-2 border-primari text-center bg-primari bg-opacity-80 h-16">
+                                <tr className="border-2 border-primari text-center text-sekunder font-semibold bg-primari bg-opacity-80 h-16">
                                     <td className="border-2 border-primari w-10">No</td>
                                     <td className="border-2 border-primari w-32">Kode Obat</td>
                                     <td className="border-2 border-primari w-32">Jenis Obat</td>
