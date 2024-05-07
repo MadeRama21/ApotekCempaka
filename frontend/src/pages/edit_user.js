@@ -58,21 +58,24 @@ function EditObat() {
     return(
         <React.Fragment>
             <Header/>
-            <h2>Ini add obat</h2>
+            <section className="min-h-screen font-poppins">
+                <div className="flex flex-col justify-center items-center py-10">
+
+            <h2>Edit Data Obat</h2>
                 <div className="columns">
                     <div className="column">
-                        <form onSubmit={updateObat}>
-                                <div className="field">
-                                    <label>Kode Obat</label>
+                        <form className="flex flex-col gap-3" onSubmit={updateObat}>
+                                <div className="field flex flex-col gap-1">
+                                    <label className="text-sm">Kode Obat</label>
                                     <div className="control">
-                                        <input type="text" value={kodeObats} onChange={(e) => setKodeObat(e.target.value)} placeholder="Masukkan Kode Obat"/>
+                                        <input className="block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6" type="text" value={kodeObats} onChange={(e) => setKodeObat(e.target.value)} placeholder="Masukkan Kode Obat"/>
                                     </div>
                                 </div>
-                                <div className="field">
-                                    <label>Jenis Obat</label>
+                                <div className="field flex flex-col gap-1">
+                                    <label className="text-sm">Jenis Obat</label>
                                     <div className="control">
                                         <div className="select">
-                                            <select value={jenisObat} onChange={(e) => setJenisObat(e.target.value)}>
+                                            <select className="bg-gray-50 border outline-none border-primari text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 pl-2.5" value={jenisObat} onChange={(e) => setJenisObat(e.target.value)}>
                                                 <option value="Ringan">Ringan</option>
                                                 <option value="Sedang">Sedang</option>
                                                 <option value="Keras">Keras</option>
@@ -80,28 +83,28 @@ function EditObat() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="field">
-                                    <label>Nama Obat</label>
+                                <div className="field flex flex-col gap-1">
+                                    <label className="text-sm">Nama Obat</label>
                                     <div className="control">
-                                        <input type="text" value={namaObat} onChange={(e) => setNamaObat(e.target.value)} placeholder="Masukkan Nama Obat"/>
+                                        <input className="block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6" type="text" value={namaObat} onChange={(e) => setNamaObat(e.target.value)} placeholder="Masukkan Nama Obat"/>
                                     </div>
                                 </div>
-                                <div className="field">
-                                    <label>Indikasi</label>
+                                <div className="field flex flex-col gap-1">
+                                    <label className="text-sm">Fungsi</label>
                                     <div className="control">
-                                        <input type="text" value={indikasi} onChange={(e) => setIndikasi(e.target.value)} placeholder="Masukkan Indikasi Obat"/>
+                                        <input className="block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6" type="text" value={indikasi} onChange={(e) => setIndikasi(e.target.value)} placeholder="Masukkan Fungsi Obat"/>
                                     </div>
                                 </div>
-                                <div className="field">
-                                    <label>Expired</label>
+                                <div className="field flex flex-col gap-1">
+                                    <label className="text-sm">Expired</label>
                                     <div className="control">
-                                        <input type="Date" value={expired} onChange={(e) => setExpired(e.target.value)} />
+                                        <input className="block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6" type="Date" value={expired} onChange={(e) => setExpired(e.target.value)} />
                                     </div>
                                 </div>
-                                <div className="field">
-                                    <label>Bentuk Obat</label>
+                                <div className="field flex flex-col gap-1">
+                                    <label className="text-sm">Bentuk Obat</label>
                                     <div className="control">
-                                        <div className="select">
+                                        <div className="bg-gray-50 border outline-none border-primari text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-1.5 pl-2.5">
                                             <select value={bentukObat} onChange={(e) => setBentukObat(e.target.value)}>
                                                 <option value="Sirup">Sirup</option>
                                                 <option value="Tablet">Tablet</option>
@@ -110,7 +113,7 @@ function EditObat() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="field">
+                                <div className="field flex flex-col gap-1">
                                     <div className="control">
                                         <button type="submit">Simpan</button>
                                     </div>
@@ -118,6 +121,8 @@ function EditObat() {
                         </form>
                     </div>
                 </div>
+                </div>
+                </section>
             <Footer/>
         </React.Fragment>
     )

@@ -51,10 +51,10 @@ function Add_obat() {
                 <section className="min-h-screen font-poppins">
                     <div className="flex flex-col justify-center items-center py-10 mt-24">
 
-                    <h1>Silahkan Tambah Data Obat</h1>
+                    <h1 className="mb-5">Silahkan Tambah Data Obat</h1>
 
-                    <div className="">
-                        <form className="flex flex-col gap-3" onSubmit={saveDataObat}>
+                    <div className="w-full flex justify-center">
+                        <form className="flex flex-col gap-3 w-1/3" onSubmit={saveDataObat}>
                             <div className="flex flex-col gap-1">
                                 <label className="text-sm">Kode Obat</label>
                                 <div className="">
