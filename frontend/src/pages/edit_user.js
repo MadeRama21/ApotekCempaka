@@ -62,9 +62,8 @@ function EditObat() {
                 <div className="flex flex-col justify-center items-center py-10">
 
             <h2>Edit Data Obat</h2>
-                <div className="columns">
-                    <div className="column">
-                        <form className="flex flex-col gap-3" onSubmit={updateObat}>
+                    <div className="w-full flex justify-center">
+                        <form className="flex flex-col gap-3 w-3/4" onSubmit={updateObat}>
                                 <div className="field flex flex-col gap-1">
                                     <label className="text-sm">Kode Obat</label>
                                     <div className="control">
@@ -120,7 +119,6 @@ function EditObat() {
                                 </div>
                         </form>
                     </div>
-                </div>
                 </div>
                 </section>
             <Footer/>
