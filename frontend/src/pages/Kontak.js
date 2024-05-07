@@ -27,7 +27,7 @@ function Kontak() {
     return (
         <React.Fragment>
             <Header/>
-            <section className="min-h-screen max-w-full font-poppins">
+            <section className="min-h-screen max-w-full font-poppins mt-24">
                 <div className="bg-[url('/src/assets/bg_kontak.svg')] xl:min-h-40 lg:min-h-36  md:min-h-32 sm:min-h-28 min-[320px]:min-h-28 flex justify-center items-center">
                     <div className="flex flex-col items-center justify-center text-sekunder font-poppins">
                         <h2 className="xl:text-5xl min-[320px]:text-3xl uppercase font-bold tracking-widest mb-1">Kontak</h2>
