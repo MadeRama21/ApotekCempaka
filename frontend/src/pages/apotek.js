@@ -38,7 +38,7 @@ function Apotek() {
             <Header />
             <section className="min-h-screen flex flex-row justify-center">
                 <div className="flex flex-col mt-10 items-center">
-                    <h2 className="mb-10 text-3xl font-bold font-poppins uppercase">Daftar Obat Apotek Cempaka</h2>
+                    <h2 className="mb-10 text-3xl font-bold font-poppins uppercase">Daftar Obat Apotek Cempak4</h2>
                     <div>
                         <Link className="bg-primari xl:py-3 xl:px-5 xl:w-40 rounded-md text-sekunder font-poppins text-sm" to={"add_obat"}>
                             Tambah Data Obat
