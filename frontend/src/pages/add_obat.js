@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import axios from "axios";
 
 function Add_obat() {
@@ -91,7 +91,7 @@ function Add_obat() {
                             <div className="flex flex-col gap-1">
                                 <label className="text-sm">Expired</label>
                                 <div className="control">
-                                    <input className={`pr-5 min-h-14 bg-gray-50 border outline-none ${errors.indikasi ? 'ring-danger' : 'ring-primari'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 py-1.5`} type="Date" value={expired} onChange={(e) => setExpired(e.target.value)} />
+                                    <input className={`block w-full pr-5 min-h-14 rounded-md bg-gray-50 border outline-none ${errors.indikasi ? 'ring-danger' : 'ring-primari'} text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-4 py-1.5`} type="Date" value={expired} onChange={(e) => setExpired(e.target.value)} />
                                     {errors.expired && <span className="text-danger text-sm">*{errors.expired}</span>}
                                 </div>
                             </div>
@@ -107,11 +107,13 @@ function Add_obat() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-1">
+                            <div className="flex gap-1">
                                 <div className="control">
-                                    <button type="submit">Simpan</button>
+                                    <button className="bg-primari xl:py-2 xl:px-2 xl:w-20 rounded-md text-sekunder font-poppins text-sm" type="submit">Simpan</button>
                                 </div>
-                                <a href="/apotek">Balik</a>
+                                <Link className="bg-danger xl:py-2 xl:px-3 xl:w-20 rounded-md text-sekunder font-poppins text-sm" to={`/apotek`}>
+                                    Kembali
+                                </Link>
                             </div>
                         </form> 
                     </div>

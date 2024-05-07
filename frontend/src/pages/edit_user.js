@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import axios from "axios";
 
 function EditObat() {
@@ -11,6 +11,7 @@ function EditObat() {
     const [indikasi, setIndikasi] = useState("")
     const [expired, setExpired] = useState("")
     const [bentukObat, setBentukObat] = useState("Sirup")
+    const [errors, setErrors] = useState({});
     const navigate = useNavigate()
     const {kodeObat} = useParams()
 
@@ -42,15 +43,19 @@ function EditObat() {
             navigate("/apotek")
         } catch (error) {
             if (error.response) {
-                // Server mengembalikan respons dengan status code 400 
-                console.log(error.response.data); // Pesan kesalahan dari server
-                console.log(error.response.status); // Status code 400
-            } else if (error.request) {
-                // Permintaan terkirim tetapi tidak menerima respons
-                console.log(error.request);
+                // Tangkap pesan error dari respons server
+                const errorMessages = error.response.data.errors;
+                const newErrors = {};
+
+                // Set pesan error untuk setiap input
+                errorMessages.forEach((errorMessage) => {
+                    newErrors[errorMessage.path] = errorMessage.msg;
+                });
+
+                // Simpan pesan error untuk setiap input dalam state errors
+                setErrors(newErrors);
             } else {
-                // Terjadi kesalahan saat menyiapkan permintaan
-                console.log('Error', error.message);
+                setErrors("Terjadi kesalahan saat mengirim permintaan.");
             }
         }
     }
@@ -67,7 +72,8 @@ function EditObat() {
                                 <div className="field flex flex-col gap-1">
                                     <label className="text-sm">Kode Obat</label>
                                     <div className="control">
-                                        <input className="block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6" type="text" value={kodeObats} onChange={(e) => setKodeObat(e.target.value)} placeholder="Masukkan Kode Obat"/>
+                                        <input className={`block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.kodeObat ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={kodeObats} onChange={(e) => setKodeObat(e.target.value)} placeholder="Masukkan Kode Obat"/>
+                                        {errors.kodeObat && <span className="text-danger text-sm">*{errors.kodeObat}</span>}
                                     </div>
                                 </div>
                                 <div className="field flex flex-col gap-1">
@@ -85,19 +91,22 @@ function EditObat() {
                                 <div className="field flex flex-col gap-1">
                                     <label className="text-sm">Nama Obat</label>
                                     <div className="control">
-                                        <input className="block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6" type="text" value={namaObat} onChange={(e) => setNamaObat(e.target.value)} placeholder="Masukkan Nama Obat"/>
+                                        <input className={`block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.namaObat ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={namaObat} onChange={(e) => setNamaObat(e.target.value)} placeholder="Masukkan Nama Obat"/>
+                                        {errors.namaObat && <span className="text-danger text-sm">*{errors.namaObat}</span>}
                                     </div>
                                 </div>
                                 <div className="field flex flex-col gap-1">
                                     <label className="text-sm">Fungsi</label>
                                     <div className="control">
-                                        <input className="block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6" type="text" value={indikasi} onChange={(e) => setIndikasi(e.target.value)} placeholder="Masukkan Fungsi Obat"/>
+                                        <input className={`block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset ${errors.indikasi ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="text" value={indikasi} onChange={(e) => setIndikasi(e.target.value)} placeholder="Masukkan Fungsi Obat"/>
+                                        {errors.indikasi && <span className="text-danger text-sm">*{errors.indikasi}</span>}
                                     </div>
                                 </div>
                                 <div className="field flex flex-col gap-1">
                                     <label className="text-sm">Expired</label>
                                     <div className="control">
-                                        <input className="block w-full rounded-md border-0 py-1.5 pl-4 pr-40 text-gray-900 ring-1 ring-inset placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6" type="Date" value={expired} onChange={(e) => setExpired(e.target.value)} />
+                                        <input className={`block w-full rounded-md border-0 py-1.5 px-4 text-gray-900 ring-1 ring-inset ${errors.expired ? 'ring-danger' : 'ring-primari'} placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primari outline-none sm:text-sm sm:leading-6`} type="Date" value={expired} onChange={(e) => setExpired(e.target.value)} />
+                                        {errors.expired && <span className="text-danger text-sm">*{errors.expired}</span>}
                                     </div>
                                 </div>
                                 <div className="field flex flex-col gap-1">
@@ -112,10 +121,13 @@ function EditObat() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="field flex flex-col gap-1">
+                                <div className="flex gap-1">
                                     <div className="control">
-                                        <button type="submit">Simpan</button>
+                                        <button className="bg-primari xl:py-2 xl:px-2 xl:w-20 rounded-md text-sekunder font-poppins text-sm" type="submit">Simpan</button>
                                     </div>
+                                    <Link className="bg-danger xl:py-2 xl:px-3 xl:w-20 rounded-md text-sekunder font-poppins text-sm" to={`/apotek`}>
+                                        Kembali
+                                    </Link>
                                 </div>
                         </form>
                     </div>
