@@ -6,7 +6,7 @@ import apotekcempakaFooter from '../assets/apotekcempaka_footer.svg'
 function Footer(){
     return(
         <React.Fragment>
-            <footer className="sm:min-h-96 sm:py-10 sm:px-10 xl:min-h-96 xl:py-10 xl:px-10 bg-primari bg-center bg-[url('/src/assets/bg-footer.svg')]">
+            <footer className="sm:min-h-96 sm:py-10 sm:px-6 xl:min-h-96 xl:py-10 xl:px-10 bg-primari bg-center bg-[url('/src/assets/bg-footer.svg')] min-[320px]:min-h-[70vh]">
                     <div className="sm:flex sm:justify-between sm:items-center sm:mx-5 xl:flex xl:justify-between xl:items-center xl:mx-5">
                         <div>
                             <a href="/"><img src={apotekcempakaFooter} alt="footer-image"></img></a>
