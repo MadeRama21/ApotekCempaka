@@ -63,7 +63,7 @@ function EditObat() {
     return(
         <React.Fragment>
             <Header/>
-            <section className="min-h-screen font-poppins">
+            <section className="min-h-screen font-poppins mt-24">
                 <div className="flex flex-col justify-center items-center py-10">
 
             <h2>Edit Data Obat</h2>
