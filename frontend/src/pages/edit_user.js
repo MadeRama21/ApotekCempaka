@@ -25,7 +25,7 @@ function EditObat() {
         setJenisObat(response.data.jenisObat)
         setNamaObat(response.data.namaObat)
         setIndikasi(response.data.indikasi)
-        setExpired(response.data.expired)
+        setExpired(response.data.expired.substring(0, 10))
         setBentukObat(response.data.bentukObat)
     }
 
